@@ -1,6 +1,7 @@
 import { Text, TextInput, TouchableOpacity, View, FlatList, Alert } from "react-native";
 import { PlusCircle } from 'react-native-feather'
 import { Task } from '../components/Task'
+import { Counter } from '../components/Counter'
 import { useState } from "react";
 
 import { styles } from "./style";
@@ -10,9 +11,19 @@ import Clipboard from '../../assets/Clipboard.svg'
 
 
 
+
 export default function Home() {
     const [tasks, setTasks] = useState<string[]>([]);
     const [taskName, setTaskName] = useState('');
+    const [count, setCount] = useState(0);
+
+    const addCount = () => {
+        setCount(count + 1)
+    }
+
+    const rmvCount = () => {
+        setCount(count - 1)
+    }
 
     function handleTaskAdd() {
         if (tasks.includes(taskName)) {
@@ -24,17 +35,18 @@ export default function Home() {
 
     }
 
-    function handleTaskRemove(name: string){
+    function handleTaskRemove(name: string) {
         Alert.alert("Remover!", `Remover a tarfea ${name}?`, [
             {
-              text: 'Sim',
-              onPress: () => setTasks(prevState => prevState.filter(task => task !== name))
+                text: 'Sim',
+                onPress: () => setTasks(prevState => prevState.filter(task => task !== name))
             },
             {
-              text: 'Não',
-              style: 'cancel'
+                text: 'Não',
+                style: 'cancel'
             }
-          ])
+        ])
+        
     }
 
 
@@ -55,18 +67,7 @@ export default function Home() {
                 </TouchableOpacity>
             </View>
 
-            <View style={styles.textCriadasHolder}>
-                <View style={styles.textInfo}>
-                    <Text style={styles.textCriadas}>Criadas</Text>
-                    <Text style={styles.numberDisplay}>  {tasks.length}</Text>
-                </View>
-                <View style={styles.textInfo}>
-                    <Text style={styles.textConcluidas}>Concluídas</Text>
-                    <Text style={styles.numberDisplay}>  2</Text>
-                </View>
-
-
-            </View>
+            <Counter contCriadas={tasks.length} contConcluidas={count} />
 
             <FlatList
                 data={tasks}
@@ -76,12 +77,14 @@ export default function Home() {
                         key={item}
                         name={item}
                         onRemove={() => handleTaskRemove(item)}
+                        onAdd={() => addCount()}
+                        onRmv={() => rmvCount()}
                     />
                 )}
                 showsVerticalScrollIndicator={false}
                 ListEmptyComponent={() => (
                     <View style={styles.listEmptyHolder}>
-                        <Clipboard/>
+                        <Clipboard />
                         <Text style={styles.listEmptyText1}>
                             Você ainda não tem tarefas cadastradas
                         </Text>
