@@ -22,8 +22,8 @@ export function Task({ name, onRemove,  onAdd, onRmv }: Props) {
     <View style={styles.taskHolder}>
       <RadioButton
         value="first"
-        uncheckedColor="#4EA8DE"
-        color="#5E60CE"
+        uncheckedColor="#FFB8F2"
+        color="#7f86a4"
         status={checked === 'checked' ? 'checked' : 'unchecked'}
         //onPress={ checked === 'checked' ? () => setChecked('unchecked'): () => setChecked('checked')}
         onPress={(function () {

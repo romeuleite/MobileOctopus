@@ -8,6 +8,7 @@ import { styles } from "./style";
 
 import Logo from '../../assets/Logo.svg'
 import Clipboard from '../../assets/Clipboard.svg'
+import Octopus from '../../assets/octopus.svg'
 
 
 
@@ -52,7 +53,7 @@ export default function Home() {
 
     return (
         <View style={styles.container}>
-            <Logo style={styles.logo} />
+            <Octopus style={styles.logo} />
             <View style={styles.form}>
                 <TextInput
                     style={styles.input}

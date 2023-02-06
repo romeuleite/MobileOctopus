@@ -19,12 +19,12 @@ export const styles = StyleSheet.create({
     },
     textCriadas: {
         fontWeight: 'bold',
-        color: '#4EA8DE',
+        color: '#FFB8F2',
         paddingRight: 6,
     },
     textConcluidas: {
         fontWeight: 'bold',
-        color: '#8284FA',
+        color: '#7f86a4',
         paddingRight: 6,
     },
 });

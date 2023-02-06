@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
   input: {
     flex: 1,
     height: 54,
-    borderColor: "#5E60CE",
+    borderColor: "#7f86a4",
     borderWidth: 1,
     borderRadius: 6,
     color: '#F2F2F2',
@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
     width: 52,
     height: 52,
     borderRadius: 6,
-    backgroundColor: '#1E6F9F',
+    backgroundColor: '#FFB8F2',
     alignItems: 'center',
     justifyContent: 'center'
   },
